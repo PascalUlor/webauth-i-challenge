@@ -1,0 +1,31 @@
+{
+  "name": "auth-project-1",
+  "version": "1.0.0",
+  "description": "lambda authentication project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PascalUlor/webauth-i-challenge.git"
+  },
+  "keywords": [
+    "authentication"
+  ],
+  "author": "pascal ulor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PascalUlor/webauth-i-challenge/issues"
+  },
+  "homepage": "https://github.com/PascalUlor/webauth-i-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.19.0",
+    "knex-cleaner": "^1.2.1",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
