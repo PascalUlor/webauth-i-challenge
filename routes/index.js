@@ -5,7 +5,7 @@ const authentication = require('../auth');
 
 const router = express();
 
-router.get('/', Controller.getUsers);
+router.get('/', authentication.restricted, Controller.getUsers);
 router.post('/', validation.validateUserSignUp, Controller.createUser);
 router.post('/login', authentication.authenticate, Controller.loginUser);
 module.exports = router;
