@@ -18,7 +18,9 @@ const validateUserSignUp = async (req, res, next) => {
       400,
       `User with username ${username} already exists`
     );
-  } catch (err) {}
+  } catch (err) {
+    err;
+  }
 };
 
 module.exports = {

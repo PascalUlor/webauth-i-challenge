@@ -13,7 +13,9 @@ const authenticate = async (req, res, next) => {
       next();
     }
     return requestHelper.error(res, 400, 'wrong credentials');
-  } catch (err) {}
+  } catch (err) {
+    err;
+  }
 };
 
 const restricted = (req, res, next) => {
