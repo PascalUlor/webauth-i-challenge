@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const cipher = require('../middlewares/hash');
 const userModel = require('../database/models');
 const requestHelper = require('../helpers');
 
@@ -6,7 +7,8 @@ const authenticate = async (req, res, next) => {
   const { username, password } = req.body;
   try {
     const check = await userModel.findUser(username).first();
-    const checkPassword = await bcrypt.compareSync(password, check.password);
+    // const checkPassword = await bcrypt.compareSync(password, check.password);
+    const checkPassword = await cipher.compare(password, check.password);
     if (check.username === username && checkPassword) {
       // eslint-disable-next-line require-atomic-updates
       req.loggedUser = check;
