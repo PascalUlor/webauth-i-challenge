@@ -26,7 +26,6 @@ const cipher = {
    */
   compare(rawPassword, rawCipher) {
     const [, rounds, encodedSalt] = rawCipher.split('$');
-    console.log(rawCipher.split('$'));
     const salt = Buffer.from(encodedSalt, 'base64').toString('ascii');
     return this.createHash(rawPassword, Number(rounds), salt) === rawCipher;
   }

@@ -34,7 +34,7 @@ const createUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
-    const payload = req.loggedUser;
+    const payload = req.session.user;
     return requestHelper.success(
       res,
       200,

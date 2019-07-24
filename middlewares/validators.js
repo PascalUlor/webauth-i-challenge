@@ -1,5 +1,4 @@
-const bcrypt = require('bcrypt');
-const cipher = require('../middlewares/hash');
+const cipher = require('./cipher');
 const userModel = require('../database/models');
 const requestHelper = require('../helpers');
 
@@ -8,9 +7,7 @@ const validateUserSignUp = async (req, res, next) => {
   try {
     const checkUser = await userModel.findUser(username);
     if (req.body.username && req.body.password && checkUser.length === 0) {
-      //   const hash = await bcrypt.hashSync(password, 12);
       const hash = await cipher.createHash(password);
-      console.log('========', hash);
       const newUser = await userModel.addUser({ username, password: hash });
       // eslint-disable-next-line require-atomic-updates
       req.new = newUser;
