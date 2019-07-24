@@ -9,8 +9,6 @@ const authenticate = async (req, res, next) => {
     const checkPassword = await cipher.compare(password, check.password);
     if (check.username === username && checkPassword) {
       // eslint-disable-next-line require-atomic-updates
-      req.loggedUser = check;
-      // eslint-disable-next-line require-atomic-updates
       req.session.user = check;
       next();
     }
